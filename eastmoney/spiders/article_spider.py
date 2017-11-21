@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.loader import ItemLoader
-from eastmoney.items import EastMoneyAriticleItem
+from eastmoney.items import EastMoneyAriticleItem, EastmoneyItemLoader
 from urllib import parse
 from scrapy.http import Request
 
@@ -34,7 +34,7 @@ class ArticleSpiderSpider(scrapy.Spider):
 
     def parse_detail(self, response):
         # 通过itemloader加载item
-        item_loader = ItemLoader(item=EastMoneyAriticleItem(), response=response)
+        item_loader = EastmoneyItemLoader(item=EastMoneyAriticleItem(), response=response)
         item_loader.add_css('title', 'div.newsContent h1::text')
         item_loader.add_value('url', response.url)
         item_loader.add_css('publish_time', 'div.time::text')

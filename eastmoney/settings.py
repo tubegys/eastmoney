@@ -66,8 +66,10 @@ ROBOTSTXT_OBEY = False
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'eastmoney.pipelines.EastmoneyPipeline': 300,
-   'eastmoney.pipelines.JsonWithEncodingPipeline': 300
+   # 'eastmoney.pipelines.JsonWithEncodingPipeline': 300
+    'eastmoney.pipelines.MysqlPipeline': 300
 }
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
